@@ -1,0 +1,14 @@
+[
+    {
+        "title": "A",
+        "publication_year": 2000,
+        "author": "B",
+        "genre": "C"
+    },
+    {
+        "title": "Samvel",
+        "publication_year": 2020,
+        "author": "D",
+        "genre": "F"
+    }
+]
