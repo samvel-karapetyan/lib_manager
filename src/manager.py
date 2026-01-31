@@ -1,15 +1,28 @@
 from src.book import Book
 from constants import DATA_PATH
 import json
+import os
 
+# github |
+# todo |
+# streamlit <-
 # TODO: log all operations
 
 class LibraryManager:
     def __init__(self):
-        # TODO: Load the data from DATA_PATH
-        self.books = []
+        # 1. if DATA_PATH does not exist
+        # 2. convert dict -> Book
 
-    def add(self):
+        if os.path.exists(DATA_PATH): # True/False
+            with open(DATA_PATH) as f:
+                data = json.load(f)
+
+            # map(lambda book_dict : Book.from_dict(book_dict), data)
+            self.books = list(map(Book.from_dict, data))
+        else:
+            self.books = [] # list[Book, Book, Book, Book]
+
+    def add_with_input(self):
         print("Adding book...")
         title = input("Input the title: ")
         while True:
@@ -20,9 +33,12 @@ class LibraryManager:
             else:
                 break
 
-        author = input("Enter author's name: ")
+        author = input("Enter the author's name: ")
         genre = input("Input the genre: ")
 
+        self.add(title=title, publication_year=publication_year, author=author, genre=genre)
+
+    def add(self, title, publication_year, author, genre):
         book = Book(
             title=title,
             publication_year=publication_year,
@@ -31,12 +47,16 @@ class LibraryManager:
         )
 
         self.books.append(book)
+        print("Book added...")
 
-    def remove(self):
+    def remove_with_input(self):
         print("Removing book...")
         title = input("Input the title: ")
         author = input("Enter author's name: ")
 
+        self.remove(title=title, author=author)
+
+    def remove(self, title, author):
         # for i, book in enumerate(self.books):
         #     if book.check_book(title=title, author=author):
         #         del self.books[i] <- vaxenalu ban
@@ -47,14 +67,23 @@ class LibraryManager:
                 self.books
                 )
             )
+        
+        print("Book removed...")
     
-    def search(self):
+    def search_with_input(self):
         print("Searching book...")
         keyword = input("Input the keyword: ")
 
-        # TODO: Search with keyword
+        self.search(keyword=keyword)
+
+    def search(self, keyword):
+        filtered_books = list(filter(lambda book : book.contains(keyword), self.books))
+        print(filtered_books)
+
+        return filtered_books
 
     def exit(self):
+        print(self.books)
         with open(DATA_PATH, "w") as f:
             # self.books -> [book1, book2, book3, book4]
             json.dump([book.to_dict() for book in self.books], f, indent=4)
@@ -62,10 +91,10 @@ class LibraryManager:
     def process(self, command):
         match command:
             case "add":
-                self.add()
+                self.add_with_input()
             case "remove":
-                self.remove()
+                self.remove_with_input()
             case "search":
-                self.search()
+                self.search_with_input()
             case "exit":
                 self.exit()
