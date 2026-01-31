@@ -1,14 +1,62 @@
 [
     {
-        "title": "A",
-        "publication_year": 2000,
-        "author": "B",
-        "genre": "C"
+        "title": "1984",
+        "publication_year": 1949,
+        "author": "George Orwell",
+        "genre": "Dystopian"
     },
     {
-        "title": "Samvel",
-        "publication_year": 2020,
-        "author": "D",
-        "genre": "F"
+        "title": "To Kill a Mockingbird",
+        "publication_year": 1960,
+        "author": "Harper Lee",
+        "genre": "Classic"
+    },
+    {
+        "title": "The Great Gatsby",
+        "publication_year": 1925,
+        "author": "F. Scott Fitzgerald",
+        "genre": "Novel"
+    },
+    {
+        "title": "The Hobbit",
+        "publication_year": 1937,
+        "author": "J. R. R. Tolkien",
+        "genre": "Fantasy"
+    },
+    {
+        "title": "Harry Potter and the Philosopher's Stone",
+        "publication_year": 1997,
+        "author": "J. K. Rowling",
+        "genre": "Fantasy"
+    },
+    {
+        "title": "The Catcher in the Rye",
+        "publication_year": 1951,
+        "author": "J. D. Salinger",
+        "genre": "Novel"
+    },
+    {
+        "title": "Pride and Prejudice",
+        "publication_year": 1813,
+        "author": "Jane Austen",
+        "genre": "Romance"
+    },
+    {
+        "title": "The Da Vinci Code",
+        "publication_year": 2003,
+        "author": "Dan Brown",
+        "genre": "Thriller"
+    },
+    {
+        "title": "The Alchemist",
+        "publication_year": 1988,
+        "author": "Paulo Coelho",
+        "genre": "Adventure"
+    },
+    {
+        "title": "Clean Code",
+        "publication_year": 2008,
+        "author": "Robert C. Martin",
+        "genre": "Programming"
     }
 ]
