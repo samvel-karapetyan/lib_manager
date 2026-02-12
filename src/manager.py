@@ -18,9 +18,15 @@ class LibraryManager:
                 data = json.load(f)
 
             # map(lambda book_dict : Book.from_dict(book_dict), data)
-            self.books = list(map(Book.from_dict, data))
+            self._books = list(map(Book.from_dict, data))
         else:
-            self.books = [] # list[Book, Book, Book, Book]
+            self._books = [] # list[Book, Book, Book, Book]
+
+    def _get_books(self):
+        return self._books
+
+    def _add_book(self, book):
+        self._books.append(book)
 
     def add_with_input(self):
         print("Adding book...")
@@ -46,7 +52,7 @@ class LibraryManager:
             genre=genre
         )
 
-        self.books.append(book)
+        self._add_book(book)
         print("Book added...")
 
     def remove_with_input(self):
@@ -98,3 +104,7 @@ class LibraryManager:
                 self.search_with_input()
             case "exit":
                 self.exit()
+
+# manager._books()
+# manager._get_books() # protected variable/method # -> [Book, Book, Book] ?
+# manager.add, manager.add_with_input

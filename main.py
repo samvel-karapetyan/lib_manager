@@ -6,7 +6,6 @@
 #     |--library_data.json
 #     |--logs.txt
 from src.manager import LibraryManager
-from src.book import Book
 
 # git - version control
 
